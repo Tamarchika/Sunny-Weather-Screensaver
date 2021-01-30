@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny weather Screensaver</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="image" href="/images/sky.png">
+</head>
+<body>
+    <script type="text/javascript">
+    
+    var sun = document.createElement('img');
+    document.body.appendChild(sun);
+
+    sun.src = "sun.png";
+    sun.style.width = "200px";
+    sun.style.background = "transparent";
+    sun.style.left = "0px";
+    sun.style.top = "0px";
+    sun.style.position = "absolute";
+
+    var boundX = window.innerWidth;
+    var boundY = window.innerHeight;
+
+    var speed = 4;
+    var x = 1;
+    var y = 1;
+
+    function screensaver() {
+        var posX = sun.offsetLeft;
+        var posY = sun.offsetTop;
+
+        if(posX + sun.offsetWidth > boundX || posX < 0){
+            x *= -1;
+        }
+        
+        if(posY + sun.offsetHeight > boundY || posY < 0){
+            y *= -1;
+        }
+        sun.style.left = sun.x + (speed * x ) + 'px';
+        sun.style.top = sun.y + (speed * y ) + 'px';
+
+        setTimeout(screensaver , 20);
+    }
+
+       screensaver();
+    
+    
+    
+    
+    </script>
+</body>
+</html>
